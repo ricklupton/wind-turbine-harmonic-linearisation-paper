@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+whales = "*"
+numpy = "*"
+matplotlib = "==2.*"
+"h5py" = "*"
+scipy = "*"
+pyyaml = "*"
+cython = "*"
+"de10586" = {file = "https://github.com/ricklupton/mbwind/archive/master.zip"}
+bem = {git = "https://github.com/ricklupton/py-bem"}
+beamfe = {git = "https://github.com/ricklupton/beamfe"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

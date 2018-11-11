@@ -1,0 +1,41 @@
+structure:
+  blade:
+    definition: 'NREL5MW_simpblade.yaml'
+    num modes: 5
+    modal damping: 0.004774  # XXX
+
+  rotor:
+    root length: 1.5
+    hub mass:    56780
+    hub inertia: 115926
+
+aerodynamics:
+  aerofoil database: 'oc3_aerofoils.npz'
+    
+drive train:
+  gear ratio: 97
+
+controller:
+  pitch controller:
+    speed filter corner freq:     1.570796
+    rated speed:                  122.9096
+    integral gain:                0.008068634
+    proportional gain:            0.01882681
+    pitch schedule doubled angle: 0.1099965
+    pitch angle min:              0
+    pitch angle max:              1.570796
+    pitch rate limit:             0.1396263
+
+  torque controller:
+    speed filter corner freq: 1.570796
+    cut in speed:             70.16224
+    opt min speed:            91.21091
+    rated speed:              121.6805
+    rated power:              5296610.0
+    opt constant:             2.332287
+    slip percent:             10.0
+    torque max:               47402.91
+    torque rate limit:        15000.0
+
+  timestep: 0.00125  # s
+  force const power above pitch: 0.01745329

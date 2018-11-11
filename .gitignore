@@ -1,0 +1,11 @@
+/.sconsign.dblite
+/paper/figures/*.pdf
+/paper/auto
+*.aux
+*.bbl
+*.blg
+*.fls
+*.log
+/paper/paper.pdf
+*.spl
+*.synctex.gz
