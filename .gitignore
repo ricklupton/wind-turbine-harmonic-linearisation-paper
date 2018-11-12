@@ -9,3 +9,4 @@
 /paper/paper.pdf
 *.spl
 *.synctex.gz
+/paper/paper.out
