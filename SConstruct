@@ -97,6 +97,6 @@ env.Figure('paper/figures/control_linearisation_examples.pdf', [
 
 ######################################################################
 
-pdf = env.PDF('paper/paper.tex')
-Depends(pdf, Glob('paper/figures/*.pdf'))
-Default(pdf)
+# pdf = env.PDF('paper/paper.tex')
+# Depends(pdf, Glob('paper/figures/*.pdf'))
+# Default(pdf)

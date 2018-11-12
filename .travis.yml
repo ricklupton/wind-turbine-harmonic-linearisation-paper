@@ -1,0 +1,30 @@
+os: linux
+dist: xenial
+language: generic
+matrix:
+  include:
+    - os: linux
+      env: TEST_LANG='paper'
+
+addons:
+  apt:
+    packages:
+    - texlive-base
+    - texlive-generic-recommended
+    - texlive-latex-base
+    - texlive-latex-recommended
+    - texlive-fonts-recommended
+    - texlive-fonts-extra
+    - fonts-lmodern
+    - texlive-xetex
+    - texlive-publishers
+    - texlive-science
+
+install:
+  - bash $TRAVIS_BUILD_DIR/.ci/install_fonts.sh
+
+script: |
+  if [[ $TEST_LANG == paper ]]
+  then
+    source .ci/build-paper.sh
+  fi
