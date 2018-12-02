@@ -71,6 +71,8 @@ def err_norm_mean(y, z):
 err_norm_mean.label = 'mean value'
 
 
+CMAP = 'viridis'
+
 def plot_overall_errors_contour(axes, Umean, error_func, levels=None):
     var = ['tipdefl_x', 'tipdefl_y', 'rotor_thrust', 'rotor_torque']
     titles = ['Out-of-plane\ntip deflection', 'In-plane\ntip deflection',
@@ -99,16 +101,16 @@ def plot_overall_errors_contour(axes, Umean, error_func, levels=None):
     for ivar in range(len(var)):
         ax = axes[:, ivar]
         ax[0].contour(amps, freqs, error[0, ivar, :, Umean, :],
-                      levels, norm=norm, cmap='coolwarm',
+                      levels, norm=norm, cmap=CMAP,
                       extend='max', zorder=-10)
         CS = ax[0].contourf(amps, freqs, error[0, ivar, :, Umean, :],
-                            levels, norm=norm, cmap='coolwarm', extend='max')
-        CS.cmap.set_over('#333333')
+                            levels, norm=norm, cmap=CMAP, extend='max')
+        # CS.cmap.set_over('#333333')
         ax[1].contour(amps, freqs, error[1, ivar, :, Umean, :],
-                      levels, norm=norm, cmap='coolwarm', extend='max',
+                      levels, norm=norm, cmap=CMAP, extend='max',
                       zorder=-10)
         ax[1].contourf(amps, freqs, error[1, ivar, :, Umean, :],
-                       levels, norm=norm, cmap='coolwarm', extend='max')
+                       levels, norm=norm, cmap=CMAP, extend='max')
         ax[0].set_title(titles[ivar])
         for a in ax:
             a.set_yscale('log')

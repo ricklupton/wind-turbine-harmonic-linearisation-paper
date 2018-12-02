@@ -1,4 +1,12 @@
-\documentclass[preprint]{elsarticle}
+\documentclass[a4paper,preprint]{elsarticle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts
+
+\usepackage{fontspec}
+\setmainfont{Charter}
+\usepackage[libertine,vvarbb,scaled=1.07]{newtxmath}
+\linespread{1.07}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Maths
@@ -23,15 +31,21 @@
 % Figures & graphics
 \usepackage{graphicx}
 
-% \usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
-% \usepackage[left=3cm, right=3cm, top=2.5cm, bottom=3.5cm]{geometry}
+\usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+
+\hypersetup{
+  pdfauthor={Richard C. Lupton and Robin S. Langley},
+  pdftitle={Improved linearised models of wind turbine aerodynamics and control
+    system dynamics using harmonic linearisation}
+}
+
+\usepackage[left=4cm, right=4cm, top=2cm, bottom=3cm]{geometry}
 
 \usepackage{calc}
 \usepackage{booktabs}
 \usepackage{enumitem}
 
 \usepackage[displaymath]{lineno}
-\linenumbers
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
@@ -39,6 +53,18 @@
 \bibliographystyle{elsarticle-num-names}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{\footnotesize\itshape © 2018. This manuscript version is made
+   available under the
+   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{CC-BY-NC-ND 4.0
+     licence}.\hfill\today
+ }%
+ \let\@evenfoot\@oddfoot}
+\makeatother
 
 \begin{document}
 
@@ -87,7 +113,7 @@
 \end{keyword}
 \end{frontmatter}
 
-\linenumbers
+% \linenumbers
 
 \section{Introduction}
 \label{sec:introduction}
@@ -118,7 +144,7 @@
 
 There are many sources of non-linearity in wind turbines. Some non-linearities
 can reasonably be neglected for some purposes, such as structural non-linearity
-\citep{lupton_complex_underreview} and second-order hydrodynamic forces
+\citep{lupton_complex_2019} and second-order hydrodynamic forces
 \citep{lupton_scaling_2017}. But some are more significant, in particular the
 aerodynamic loads and the control system dynamics. For example,
 Figure~\ref{fig:thrust} shows the thrust curve of part of a wind turbine rotor,
@@ -869,7 +895,7 @@ below the rated wind speed has not been found.
 Figure~\ref{fig:control-lin-midfreq} gives more detail by plotting the variation
 with time of the non-linear and linearised responses at a frequency of
 \SI{0.32}{\radian\per\second}. Additional results at different frequencies are
-in Appendix~\ref{sec:appendix-control-results}.
+in \ref{sec:appendix-control-results}.
 
 The linearised results show the best agreement with the non-linear simulations at
 mean wind speeds far from the turbine's rated wind speed (left and right
@@ -947,7 +973,7 @@ This paper has demonstrated how harmonic linearisation can be used to improve
 approximations of the non-linear aerodynamic loads, wake dynamics, and control
 system behaviour of a wind turbine, by comparing the results to tangent
 linearisation and non-linear reference simulations of the NREL 5MW turbine. This
-is the first time harmonic linearisation has applied to wind turbine
+is the first time harmonic linearisation has been applied to wind turbine
 aerodynamics and control system behaviour. In summary the results are:
 \begin{itemize}
 \item Harmonic linearisation reduced the error in approximating the aerodynamic
@@ -971,7 +997,7 @@ linearisation of the control system behaviour and to extend the approach to
 stochastic inputs.
 
 In this paper, the structural dynamics, wake dynamics and control system
-dynamics has been considered separately. In a forthcoming paper we will present
+dynamics have been considered separately. In a forthcoming paper we will present
 a more complete example of a linearised frequency-domain model of a floating
 wind turbine, in which the platform and structural dynamic response to
 non-linear aerodynamic forces are solved together, both with and without the

@@ -121,6 +121,9 @@ examples3 = [
 ]
 
 
+CMAP = 'viridis'
+
+
 def plot_overall_errors_contour_notnorm(error_func, scales, labels, ranges):
     fig, axes = plt.subplots(3, 4, sharex=True, sharey=True, figsize=(6, 5))
     fig.subplots_adjust(left=0.1, right=0.85, top=0.75, bottom=0.1)
@@ -140,9 +143,9 @@ def plot_overall_errors_contour_notnorm(error_func, scales, labels, ranges):
         for iamp in range(len(AMPLITUDES)):
             ax = axes[iamp, ivar]
             ax.contour(MEAN_WIND_SPEEDS, FREQUENCIES, err[:, :, iamp],
-                       levels, norm=norm, cmap='coolwarm', zorder=-10)
+                       levels, norm=norm, cmap=CMAP, zorder=-10)
             CS = ax.contourf(MEAN_WIND_SPEEDS, FREQUENCIES, err[:, :, iamp],
-                             levels, norm=norm, cmap='coolwarm', extend='max')
+                             levels, norm=norm, cmap=CMAP, extend='max')
             # for c in CS.collections:
             #     c.set_rasterized(True)
             if ax.is_first_row():
@@ -158,7 +161,7 @@ def plot_overall_errors_contour_notnorm(error_func, scales, labels, ranges):
                         ax.plot([MEAN_WIND_SPEEDS[im]], [FREQUENCIES[iw]],
                                 'ro', ms=5, mec='w', zorder=10, clip_on=False)
 
-        CS.cmap.set_over('#333333')
+        # CS.cmap.set_over('#333333')
         #CS.set_clim(0, ranges[ivar][1])
         pos = axes[0, ivar].get_position()
         cax = fig.add_axes([pos.x0, 0.90, pos.width, 0.03])
