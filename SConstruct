@@ -79,6 +79,9 @@ env.Figure('paper/figures/linearisation_loops_along_blade.pdf', [
 env.Figure('paper/figures/harmonic_torque_examples.pdf', [
     'data/NREL5MW_simpblade_model.yaml'
 ])
+env.Figure('paper/figures/harmonic_torque_examples_simple.png', [
+    'data/NREL5MW_simpblade_model.yaml'
+])
 
 env.Figure('paper/figures/torque_nonlinearity.pdf', [
     'data/NREL5MW_simpblade_model.yaml'
